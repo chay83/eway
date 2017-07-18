@@ -6,7 +6,7 @@
 
 		public static function getGatewayURI() {
 			return (eWayAPI::isTesting())
-				? 'https://www.eway.com.au/gateway/ManagedPaymentService/test/managedcreditcardpayment.asmx'
+				? 'https://api.sandbox.ewaypayments.com/gateway/ManagedPayments/ManagedPaymentsService.asmx'
 				: 'https://www.eway.com.au/gateway/ManagedPaymentService/managedcreditcardpayment.asmx';
 		}
 

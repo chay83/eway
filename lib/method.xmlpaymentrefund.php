@@ -100,6 +100,7 @@
 
 			// Start the Gateway
 			$curl = PGI_Request::start(XMLPaymentRefundSettings::getGatewayURI(), $eway_request_xml->asXML());
+			$curl->setopt(CURLOPT_SSLVERSION, 6);
 			$curl_result = $curl->exec();
 			$info = $curl->getInfoLast();
 

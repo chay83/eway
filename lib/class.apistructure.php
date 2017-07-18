@@ -14,6 +14,7 @@
 			$curl->setopt('POST', true);
 			$curl->setopt('POSTFIELDS', $xml);
 			$curl->setopt('TIMEOUT', $timeout);
+			$curl->setopt(CURLOPT_SSLVERSION, 6);
 
 			return $curl;
 		}

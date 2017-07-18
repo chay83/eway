@@ -6,7 +6,7 @@
 
 		public static function getGatewayURI() {
 			return (eWayAPI::isTesting())
-				? 'https://www.eway.com.au/gateway_cvn/xmltest/testpage.asp'
+				? 'https://api.sandbox.ewaypayments.com/gateway/Xml/CvnXmlPaymentRequestHandler.ashx'
 				: 'https://www.eway.com.au/gateway_cvn/xmlpayment.asp';
 		}
 
@@ -104,6 +104,7 @@
 
 			// Start the Gateway
 			$curl = PGI_Request::start(HostedPaymentsCVNSettings::getGatewayURI(), $eway_request_xml->asXML());
+			$curl->setopt(CURLOPT_SSLVERSION, 6);
 			$curl_result = $curl->exec();
 			$info = $curl->getInfoLast();
 
